@@ -868,7 +868,7 @@ def get_proxy_ip():
             logger.error(f"代理接口请求失败，状态码: {response.status_code}")
             return None
         
-        proxy = parse_proxy_response(response.text)
+        proxy = parse_proxy_response(response.json ()['proxy'])
         
         if not proxy:
             logger.error(f"代理接口返回格式无法解析: {response.text[:100]}")
